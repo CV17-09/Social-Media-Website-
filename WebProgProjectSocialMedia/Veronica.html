@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+
+<!-- Fig 2.1: main.html -->
+<!--First HTML5 example -->
+<html>
+	<head>
+		<meta charset = "utf-8"> 
+<!--is an HTML tag used in the (head) section of a webpage to specify the character encoding for the document, helps with cross language compatibility -->
+		<title>  Veronica Page </title>
+		<link red = "stylesheet" type = "text/CSS" href = "styleC.css=">
+		<script src = "focusblurHW5.js"></script>
+
+	<!-- control how the table looks (CSS) -->
+
+	<style type = "text/css">
+		table{
+			font-family: arial, sans-serif; /* text inside table uses Arial, if no arial then sans-serif */
+			border-collapse: collapse; /* Removes double borders */
+			width: 100%; /* makes table stretch to entire page */
+		}
+		
+		td, th { /* applies to both table (td) and header (th) cells */
+			border: 1px solid #dddddd; /* light gray border */
+			text-align: center; /* aligns text to center */
+			padding: 8px; /* adds space inside the cells so the text doesn't touch the border */
+		}
+		
+		tr:nth-child(even) { /* tr : table row , nth -child(even): selects every even numbered row (e.g, 2nd, 4th 6th..)*/
+			background-color: #dddddd /* fill rows with light gray color */
+		}
+		thead{
+			background-color: #3cb371;
+			color: white;
+		}
+		
+		.image-zoom-container{
+	  	   width: 850px;
+		   height: 200px;
+	   	   overflow: hidden;
+	   	   margin: 0;
+		}
+
+		.zoom-image{
+	   	   width: 100%;
+	   	   height: 100%;
+	   	   object-fit: cover;
+	 
+	   	   animation: zoomIn 12s ease-in-out infinite alternate;
+	   	   display: block;
+		}
+		
+		@keyframes zoomIn {
+  		   from { transform: scale(1); }
+  		   to   { transform: scale(1.15); }
+		}
+		
+		.info-box{
+		   border: 3px solid #f4b6c2;
+		   background-color: #ffeef2;
+		   padding: 15px;
+		   margin: 20px auto;
+		   border-radius: 12px;
+		   box-shadow: 0 0 10px rgba(244,182,194,0.4);
+		   width: 60%;
+		}
+
+		.info-box ul{
+		   list-style-type: square;
+		   line-height: 1.6;
+		   color: #a05278
+		   font-family: "Courier New", monospace;
+		}
+
+	</style>
+	</head>
+	<body>
+		<h1 style = "color: Brown;"> <b> Welcome! </b></h1>
+
+	<!-- Add an image to website --> 
+	<div class = "image-zoom-container">
+           <img src ="https://astrobackyard.com/wp-content/uploads/2022/10/the-universe.jpg" 
+		alt="https://astrobackyard.com/how-big-is-the-universe/" 
+		Class = "zoom-image">
+	</div>
+	
+
+
+	<!-- Write a paragraph about yourself --> 
+
+		<p style = "font-family: Courier New, monospace;"><strong> Hello my name is Veronica Alviso, I was born and raised in Houston, Texas and I am a senior at the University of Houston - Downtown, my major is computer science with two minors: bioinformatics and data science. I expect to graduate in spring 2026. I am currently working in a collaborative project, my roles include idea originator, leader and programmer. I am also part of a collaborative research with Dr. Subash at UHD. I aspire to become a mobile and AI developer and made the decision to develop a mobile app for my senior project, I am working on improving my current skills and learning new ones. I have many ideas to bring to life and hope to get mentorship through my final year in school from both professors and students. Here are some interesting facts about myself: </strong> </p>
+		
+	<!-- Create a list -->
+	
+	<div class = "info-box">
+		<ul>
+			<li> I have built computers since 2014
+				<ul>
+				 <li>6 computers </li>
+				 </ul>
+			</li>
+			<li> I enjoy reading books</li>
+			<li> I enjoy learning new things </li>
+			<li> My favorite band is Paramore </li>
+			<li> I have 4 pets: 1 dog and 3 cats</li>
+			<li> I started playing golf this year </li>
+			<li> My dream travel destination is Austria </li>
+
+		</ul>
+	</div>
+
+	<!--Create a table -->
+
+		<p style = "color: white; background-image: url('softimage.jpg'); background-repeat: no-repeat; padding: 20px;"> <b>Let us dive a little bit about golf. </b> <br> We will look at Women's golf clubs and their distance (yards) and their price range. <br> The clubs distance will be based on skill level (e.g, beginner).
+		</p> 
+		
+
+		<table>
+			<caption><strong> Women's Golf Club Distance (yds) and Price </strong></caption>
+			<thead>
+				<tr>
+					<th>Club</th>
+					<th>Beginner</th>
+					<th>Average</th>
+					<th>Good</th>
+					<th>PGA Tour</th>
+					<th>Price Range</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td>Driver</td>
+					<td>150-175</td>
+					<td>175-200</td>
+					<td>200-230</td>
+					<td>240-280</td>
+					<td>$100-$700+</td>
+				</tr>
+				<tr>
+					<td>3 Wood</td>
+					<td>125-135</td>
+					<td>150-170</td>
+					<td>180-210</td>
+					<td>195-217</td>
+					<td>$70-$400+</td>
+				</tr>
+				<tr>
+					<td>3/5 Hybrid</td>
+					<td>105-115</td>
+					<td>130-135</td>
+					<td>165-195</td>
+					<td>180-200</td>
+					<td>$50-$320+</td>
+				</tr>
+				<tr>
+					<td>6 Iron</td>
+					<td>70</td>
+					<td>100</td>
+					<td>130-160</td>
+					<td>150-165</td>
+					<td>$60-$180+</td>
+				</tr>
+				<tr>
+					<td>7 Iron</td>
+					<td>65</td>
+					<td>90</td>
+					<td>120-150</td>
+					<td>140-155</td>
+					<td>$50-$200</td>
+				</tr>
+				<tr>
+					<td>8 Iron</td>
+					<td>60</td>
+					<td>80</td>
+					<td>110-140</td>
+					<td>130-145</td>
+					<td>$60-$180+</td>
+				</tr>
+				<tr>
+					<td>9 Iron</td>
+					<td>55</td>
+					<td>70</td>
+					<td>95-130</td>
+					<td>120-135</td>
+					<td>$60-$180+</td>
+				</tr>
+				<tr>
+					<td>Sand Wedge</td>
+					<td>40</td>
+					<td>50</td>
+					<td>60-85</td>
+					<td>90-95</td>
+					<td>$90-$200+</td>
+				</tr>
+				<tr>
+					<td>Pitching Wedge</td>
+					<td>50</td>
+					<td>60</td>
+					<td>80-115</td>
+					<td>110-120</td>
+					<td>$90-$200+</td>
+				</tr>
+			</tbody>
+		</table>
+		
+	
+
+		<!-- Create one link -->
+
+		<p style="color: teal;"> Follow my <b><a href="https://www.linkedin.com/in/veronica-alviso-97b525207/" target="_blank">LinkedIn</a></b>
+		</p>
+
+		<!-- create a form -->
+	
+		<h2 style = "color: Brown;"> <b> Leave a Nice Comment Form! </b> </h2>
+			<p><strong> Feel free to leave a nice comment or questions </strong></p>
+			
+			<form id = "post" action = "">	
+			    <p><label class = "fixed" for = "name">Name:</label>
+				<input type = "text" id = "name"
+				    placeholder = "Enter name"></p>
+			    <p><label class = "fixed" for = "email">E-mail:</label>
+				<input type = "email" id = "email"
+				    placeholder = "Enter e-mail address"></p>
+			    <p><label> Click here if you like this site
+				<input type = "checkbox" id = "like"></label></p>
+			    <p><label for = "comments"> Comments &hearts;</p>
+			    <textarea id = "comments"
+				placeholder = "Leave nice comments here."></textarea>
+			    <p><input id = "submit" type = "submit">
+				<input id = "reset" type = "reset"></p>
+			
+			</form>
+			<p id = "helpText"></p>
+
+	</body>
+</html>

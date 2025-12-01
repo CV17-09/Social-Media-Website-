@@ -1,0 +1,51 @@
+/* Fig. 4.7: styles.css */
+/* External style sheet */
+a.nodec  { text-decoration: none; }
+a:hover  { text-decoration: underline; }
+li em    { font-weight: bold; }
+h1 em    { text-decoration: underline;  font-size: xx-large;color: darkcyan;}
+h1 em 	 { font-style: italic;}
+ul       { margin-left: 20px; }
+body     { font-family: arial, helvetica, sans-serif; background-color: lightgray; }
+  
+/* Animate links on hover */
+a:hover {
+    text-decoration: underline;
+    color: darkcyan;
+    transition: color 0.3s ease;
+}
+/* Animate the heading */
+h1 {
+    animation: fadeIn 1s ease-in;
+}
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+/* Animate images on hover */
+img:hover {
+    transform: scale(1.05);
+    transition: transform 0.3s ease;
+}
+  
+/* Media query for screens with a minimum width of 1200px (e.g. large desktops) */
+@media screen and (min-width: 1200px)
+{
+  body{
+    background-color: lightgray;
+  }
+  h1 { 
+    font-size: 48px;
+  }
+}
+  
+img {
+  position: relative;
+  animation: simpleMove 2s infinite;
+}
+
+@keyframes simpleMove {
+  0%   {left: 0px;}
+  50%  {left: 100px;}
+  100% {left: 0px;}
+}
