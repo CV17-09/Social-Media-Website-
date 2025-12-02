@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<!--Nino-->
+<head>
+    <meta charset="UTF-8">
+    <title>Yapp - Social Media Platform</title>
+
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <!--Veronica - Holds the entire website -->
+    <div class="app-container">
+
+        <!-- Desktop sidebar -->
+        <aside id="desktopSidebar" class="sidebar sidebar-left">
+
+            <!-- Logo Section -->
+            <div class="logo-wrapper">
+                <h1 class="logo-text">Yapp</h1>
+            </div>
+
+            <!-- Navigation -->
+            <nav class="nav-list" id="desktopNav">
+
+                <!-- Home navigation button -->
+                <button onclick="switchTab('home')" data-tab="home" class="nav-btn nav-btn-active">
+                    <i class="fa-solid fa-house icon-md"></i>
+                    <span>Home</span>
+                </button>
+
+                <!-- Search navigation button -->
+                <button onclick="switchTab('search')" data-tab="search" class="nav-btn">
+                    <i class="fa-solid fa-magnifying-glass icon-md"></i>
+                    <span>Search</span>
+                </button>
+
+                <!-- Notifications navigation button -->
+                <button onclick="switchTab('notifications')" data-tab="notifications" class="nav-btn">
+                    <i class="fa-regular fa-bell icon-md"></i>
+                    <span>Notifications</span>
+                </button>
+
+                <!-- Profile navigation button -->
+                <button onclick="switchTab('profile')" data-tab="profile" class="nav-btn">
+                    <i class="fa-regular fa-user icon-md"></i>
+                    <span>Profile</span>
+                </button>
+
+                <!--Meet The Developers button-->
+                <button onclick="switchTab('developers')" data-tab="developers" class="nav-btn">
+                    <i class="fa-solid fa-regular icon-md"></i>
+                    <span>Meet The Developers</span>
+                </button>
+            </nav>
+
+            <!-- New Post button (Add new pictures to your profile button) -->
+            <div class="sidebar-post-wrapper">
+                <button class="btn-primary btn-full">
+                    New Post
+                </button>
+            </div>
+
+            <!-- Veronica - Profile (small user info block in the main page) -->
+            <div class="sidebar-profile">
+
+                 <!-- Profile button (upload avatar / show dropdown) -->
+                <div class="profile-btn">
+
+                    <!-- Click photo to change avatar -->
+                    <img id="profilePic" src="images/default.jpg" alt="User" class="avatar-md" onclick="document.getElementById('uploadAvatar').click()">
+
+                    <!-- Profile description -->
+                    <div class="profile-text">
+                        <p class="profile-name">Your Name</p>
+                        <p class="profile-handle">@yourhandle</p>
+                    </div>
+
+                    <!-- 3-dot menu toggles dropdown -->
+                    <i class="fa-solid fa-ellipsis icon-sm muted"
+                    id="profileMenuToggle"></i>
+                </div>
+
+                <!-- Hidden file input for avatar -->
+                <input type="file" id="uploadAvatar" accept="image/*" style="display: none;">
+
+                <!-- DROPDOWN MENU -->
+                <div id="profileMenu" class="profile-menu hidden">
+                    <button id="logoutBtn" class="logout-btn">Log Out</button>
+                </div>
+
+            </div>
+
+        </aside>
+
+        <!--  Claudia = Main content area (center of the page) -->
+        <main id="mainContent" class="main-content">
+
+            <!-- HOME TAB -->
+            <section id="homeTab" class="tab-content">
+                <div class="feed-header">
+                    <button class="feed-tab feed-tab-active">For you</button>
+                    <button class="feed-tab">Explore</button>
+                </div>
+
+                <div class="feed-wrapper">
+
+                 <!-- Posts Container -->
+                    <div id="postsContainer" class="posts-container">
+                        
+                        <!-- Post 1 -->
+                        <article class="card post-card">
+                            <div class="post-header">
+                                <div class="post-user-info">
+                                    <p class="post-username">Sarah Chen</p>
+                                    <p class="post-time">2 hours ago</p>
+                                </div>
+                                <img src="https://i.pravatar.cc/150?img=1" alt="User" class="avatar-sm">
+                            </div>
+                            <div class="post-content">
+                                <p>Love this piece of art!! </p>
+                            </div>
+
+                            <div class="post-image-wrapper">
+                                 <img src="https://www.rileystreet.com/cdn/shop/articles/shutterstock_410271079.jpg?v=1624398205" alt="Post image" class="post-image">
+                            </div>
+
+                            <div class="post-actions">
+                                <button class="action-btn" onclick="likePost(this)">
+                                    <i class="fa-regular fa-heart"></i>
+                                    <span>30</span>
+                                </button>
+                                <button class="action-btn" onclick="toggleComments(this)">
+                                    <i class="fa-regular fa-comment"></i>
+                                    <span>5</span>
+                                </button>
+                            </div>
+                        </article>
+                    </div>
+                    <!--More post can be added below-->
+                
+                 <!-- Posts Container #2-->
+                    <div id="postsContainer" class="posts-container">
+                        
+                        <!-- Post 1 -->
+                        <article class="card post-card">
+                            <div class="post-header">
+                                <div class="post-user-info">
+                                    <p class="post-username">Olivia Rodrigo</p>
+                                    <p class="post-time">4 hours ago</p>
+                                </div>
+                                <img src="data:image/jpeg;base64,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" alt="User" class="avatar-sm">
+                            </div>
+                            <div class="post-content">
+                                <p> love & wishes </p>
+                            </div>
+
+                            <div class="post-image-wrapper">
+                                 <img src="https://people.com/thmb/D6_IkropU8yX_dPoQOQ_FX8oma4=/4000x0/filters:no_upscale():max_bytes(150000):strip_icc():focal(562x475:564x477)/olivia-rodrigo-092325-5-fe816efc007b421e90b889bc03ee1fe0.jpg" alt="Post image" class="post-image">
+                            </div>
+
+                            <div class="post-actions">
+                                <button class="action-btn" onclick="likePost(this)">
+                                    <i class="fa-regular fa-heart"></i>
+                                    <span>2m</span>
+                                </button>
+                                <button class="action-btn" onclick="toggleComments(this)">
+                                    <i class="fa-regular fa-comment"></i>
+                                    <span>1.1m</span>
+                                </button>
+                            </div>
+                        </article>
+                    </div>  
+
+                </div>
+            </section>
+
+            <!-- SEARCH TAB -->
+            <section id="searchTab" class="tab-content hidden">
+                <h2 class="section-title">Search</h2>
+                <p>Search for users or posts.</p>
+
+                <div class="search-input-wrapper">
+                    <i class="fa-solid fa-magnifying-glass search-icon icon-sm"></i>
+                    <input
+                        type="text"
+                        id="searchInput"
+                        class="search-input"
+                        placeholder="Search..."
+                    >
+                </div>
+            </section>
+
+            <!--Claudia- NOTIFICATIONS TAB -->
+            <section id="notificationsTab" class="tab-content hidden">
+                <h2 class="section-title">Notifications</h2>
+
+                <div class="notifications-container">
+                    <!-- You can inject notification cards here later with JS -->
+                     <!-- Follow Request 1 -->
+                    <div class="card notification-card follow-request">
+                        <img src="https://i.pravatar.cc/150?img=11" alt="User" class="avatar-md">
+                        <div class="notification-content">
+                            <p class="notification-text">
+                                <strong>Marcus Rodriguez</strong> wants to follow you
+                            </p>
+                            <p class="notification-time">2 hours ago</p>
+                        </div>
+                        <div class="notification-actions">
+                            <button class="btn-accept" onclick="acceptFollowRequest(this)">Accept</button>
+                            <button class="btn-decline" onclick="declineFollowRequest(this)">Decline</button>
+                        </div>
+                    </div>
+                     <!-- Follow Request 2 -->
+                    <div class="card notification-card follow-request">
+                        <img src="https://i.pravatar.cc/150?img=22" alt="User" class="avatar-md">
+                        <div class="notification-content">
+                            <p class="notification-text">
+                                <strong>Amanda Johnson</strong> wants to follow you
+                            </p>
+                            <p class="notification-time">5 hours ago</p>
+                        </div>
+                        <div class="notification-actions">
+                            <button class="btn-accept" onclick="acceptFollowRequest(this)">Accept</button>
+                            <button class="btn-decline" onclick="declineFollowRequest(this)">Decline</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- PROFILE TAB -->
+            <section id="profileTab" class="tab-content hidden">
+                <h2 class="section-title">Profile</h2>
+
+                <div class="card profile-card">
+                    <img id="profilePicLarge" src="images/default.jpg" alt="User" class="avatar-lg">
+                    <h3 id="profilePageName">Your Name</h3>
+                    <p id ="profilePageHandle"> @yourhandle</p>
+                    <p>Bio</p>
+                </div>
+
+                <div class="profile-posts">
+                <article class="post-card">
+                    <div class="post-header">
+                        <div class="post-user-info">
+                            <p class="post-username profile-name">potter</p>
+                            <p class="post-time">1h ago</p>
+                        </div>
+                        <img src="https://i.pravatar.cc/80?u=potter" alt="User" class="avatar-sm">
+                    </div>
+
+                    <div class="post-content">
+                        <p>First post from my profile ✨</p>
+                    </div>
+
+                    <div class="post-image-wrapper">
+                        <img
+                            src="https://images.unsplash.com/photo-1595901688281-9cef114adb0b?fm=jpg&q=60&w=3000&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8dGltZXMlMjBzcXVhcmV8ZW58MHx8MHx8fDA%3D"
+                            alt="Post image"
+                            class="post-image"
+                        >
+                    </div>
+                </article>
+            </section>
+
+            <!-- Veronica - Meet the developers tab-->
+            <div id="developersTab" class="tab-content">
+                <h2 class="dev-title">Meet the Developers</h2>
+                
+                <div class="dev-grid">
+
+                    <!--Nino-->
+                    <div class="dev-card">
+                        <div class="dev-card-inner">
+                            <div class="dev-card-front">
+                                <div class="dev-photo-placeholder">
+                                    <i class="fa-solid fa-user dev-icon"></i>
+                                </div>
+                                <!--<img src="na" alt="Nino" class="dev-photo"> -->
+                                <h3>Nino</h3>
+                                <p>Developer|Designer</p>
+                            </div>
+                            <div class="dev-card-back">
+                                <a href="https://ninolandicho.xyz/" class="dev-portfolio-btn">View My Portfolio</a>
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <!--Edder-->
+                    <div class="dev-card">
+                        <div class="dev-card-inner">
+                            <div class="dev-card-front">
+                                <div class="dev-photo-placeholder">
+                                    <i class="fa-solid fa-user dev-icon"></i>
+                                </div>
+                                <h3>Edder</h3>
+                                <p>Developer|Backend</p>
+                            </div>
+                            <div class="dev-card-back">
+                                <a href="Edder.html" class="dev-portfolio-btn">Visit My Portfolio</a>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <!--Claudia-->
+                    <div class="dev-card">
+                        <div class="dev-card-inner">
+                            <div class="dev-card-front">
+                                <div class="dev-photo-placeholder">
+                                    <i class="fa-solid fa-user dev-icon"></i>
+                                </div>
+                                <h3>Claudia</h3>
+                                <p>Developer|FrontEnd</p>
+                            </div>
+                            <div class="dev-card-back">
+                                <a href="claudia.html" class="dev-portfolio-btn">Visit My Portfolio</a>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <!--Azuka-->
+                    <div class="dev-card">
+                        <div class="dev-card-inner">
+                            <div class="dev-card-front">
+                                <div class="dev-photo-placeholder">
+                                    <i class="fa-solid fa-user dev-icon"></i>
+                                </div>
+                                <h3>Azuka</h3>
+                                <p>Developer|Backend</p>
+                            </div>
+                            <div class="dev-card-back">
+                                <a href="Azuka.html" class="dev-portfolio-btn">Visit My Portfolio</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!--Veronica-->
+                    <div class="dev-card">
+                        <div class="dev-card-inner">
+                            <div class="dev-card-front">
+                                <div class="dev-photo-placeholder">
+                                    <i class="fa-solid fa-user dev-icon"></i>
+                                </div>
+                                <h3>Veronica</h3>
+                                <p>Developer|FrontEnd</p>
+                            </div>
+                            <div class="dev-card-back">
+                                <a href="Veronica.html" class="dev-portfolio-btn">Visit My Portfolio</a>
+                            </div>
+                        </div>
+                    </div>
+
+
+                </div>
+        </main>
+
+    </div>
+
+    <!-- Edder: Firebase config and load-->
+    <script type="module" src="firebase-init.js"></script>
+    <script type="module" src="script.js"></script>
+
+    <!-- Small inline script just for avatar upload preview -->
+    <script>
+        // When the user selects a file, update the sidebar (and profile) picture
+        const uploadInput = document.getElementById('uploadAvatar');
+        const smallPic = document.getElementById('profilePic');
+        const largePic = document.getElementById('profilePicLarge');
+
+        if (uploadInput) {
+            uploadInput.addEventListener('change', function (event) {
+                const file = event.target.files[0];
+                if (file) {
+                    const url = URL.createObjectURL(file);
+                    if (smallPic) smallPic.src = url;
+                    if (largePic) largePic.src = url;
+                }
+            });
+        }
+    </script>
+</body>
+</html>
